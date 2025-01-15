@@ -38,7 +38,16 @@ Create a `.env` file which should override environment variables required to run
 NEXT_PUBLIC_BASE_URL=http://localhost:3000
 NODE_ENV=development
 SERVICE_NAME="UI template"
+
+# Auth
+NEXTAUTH_URL=https://localhost:3000/api/auth
+NEXTAUTH_SECRET={RANDOM_SECRET_STRING}
+AUTH_NHSLOGIN_ISSUER_URL=https://auth.sandpit.signin.nhs.uk
+AUTH_NHSLOGIN_CLIENT_ID={CLIENT_ID}
+AUTH_NHSLOGIN_CLIENT_SECRET={CLIENT_SECRET}
 ```
+
+For `NEXTAUTH_SECRET` you can use `openssl rand -base64 32` or [https://generate-secret.vercel.app/32](https://generate-secret.vercel.app/32) to generate a random value.
 
 ## Testing
 
