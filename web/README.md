@@ -4,22 +4,6 @@ User interface template for Screening services.
 
 Built with [Next.js](https://nextjs.org/).
 
-## Using Docker and Makefile
-
-Development environment
-
-```
-make build-development
-make start-development
-```
-
-Open [http://localhost:3001](http://localhost:3001).
-Stop the development environment
-
-```
-make stop-development
-```
-
 ## Running locally
 
 Install the required dependencies using
