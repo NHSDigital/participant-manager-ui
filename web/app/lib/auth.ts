@@ -1,5 +1,10 @@
+import fs from "fs";
+import path from "path";
 import NextAuth, { Profile } from "next-auth";
 import { OAuthConfig } from "next-auth/providers";
+
+const privateKeyPath = path.join(process.cwd(), "keys", "private_key.pem");
+const clientPrivateKey = fs.readFileSync(privateKeyPath, "utf8");
 
 const NHS_LOGIN: OAuthConfig<Profile> = {
   id: "nhs-login",
@@ -8,17 +13,19 @@ const NHS_LOGIN: OAuthConfig<Profile> = {
   issuer: `${process.env.AUTH_NHSLOGIN_ISSUER_URL}`,
   wellKnown: `${process.env.AUTH_NHSLOGIN_ISSUER_URL}/.well-known/openid-configuration`,
   clientId: process.env.AUTH_NHSLOGIN_CLIENT_ID,
-  clientSecret: process.env.AUTH_NHSLOGIN_CLIENT_SECRET,
   authorization: {
     params: {
-      scope: "",
+      scope: "openid profile email basic_demographics profile_extended",
     },
   },
+  idToken: true,
   client: {
-    token_endpoint_auth_method: "client_secret_post",
+    token_endpoint_auth_method: "private_key_jwt",
   },
-  idToken: false,
-  checks: ["state"],
+  token: {
+    clientPrivateKey: clientPrivateKey,
+  },
+  checks: [],
 };
 
 export const { handlers, signIn, signOut, auth } = NextAuth({

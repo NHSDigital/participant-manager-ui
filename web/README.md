@@ -17,12 +17,12 @@ npm install
 Then, run the development server:
 
 ```bash
-pnpm dev
+pnpm dev:secure
 # or
-npm dev
+npm dev:secure
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open [https://localhost:3000](https://localhost:3000).
 
 ### Prerequisites
 
@@ -35,7 +35,7 @@ Create a `.env` file which should override environment variables required to run
 
 ```
 # Default
-NEXT_PUBLIC_BASE_URL=http://localhost:3000
+NEXT_PUBLIC_BASE_URL=https://localhost:3000
 NODE_ENV=development
 SERVICE_NAME="UI template"
 
