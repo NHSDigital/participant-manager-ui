@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import NextAuth, { Profile } from "next-auth";
+import NextAuth, { Profile, User as NextAuthUser } from "next-auth";
 import { OAuthConfig } from "next-auth/providers";
 
 // Function to convert PEM to CryptoKey
@@ -63,4 +63,22 @@ const NHS_LOGIN: OAuthConfig<Profile> = {
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [NHS_LOGIN],
+  callbacks: {
+    async jwt({ token, user, profile }) {
+      if (user && profile) {
+        token.name = `${profile.family_name} ${profile.surname}`;
+        token.dob = profile.birthdate;
+        token.nhsNumber = profile.nhs_number;
+        token.identityLevel = profile.identity_proofing_level;
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      session.user.name = token.name;
+      session.user.dob = token.dob;
+      session.user.nhsNumber = token.nhsNumber;
+      session.user.identityLevel = token.identityLevel;
+      return session;
+    },
+  },
 });
