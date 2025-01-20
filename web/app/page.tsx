@@ -19,7 +19,7 @@ export default async function Home() {
       {session?.user && (
         <>
           <p>
-            Welcome to {session.user.name} (NHS number:{" "}
+            Welcome {session.user.name} (NHS number:{" "}
             {formatNhsNumber(session.user.nhsNumber)}), you are signed in.
           </p>
           <p>Date of birth: {formatDate(session.user.dob)}</p>
