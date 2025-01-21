@@ -10,9 +10,10 @@ async function pemToPrivateKey(pemPath: string): Promise<CryptoKey> {
 
   // Remove headers and convert to binary
   const pemContents = pem
-    .replace("---", "")
-    .replace("---", "")
-    .replace(/\s/g, "");
+    .trim()
+    .split("\n")
+    .filter((line) => !line.includes("-----"))
+    .join("");
 
   // Convert base64 to buffer
   const keyBuffer = Buffer.from(pemContents, "base64");
