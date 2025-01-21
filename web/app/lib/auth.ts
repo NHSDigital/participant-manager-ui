@@ -66,7 +66,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   callbacks: {
     async jwt({ token, user, profile }) {
       if (user && profile) {
-        token.name = `${profile.family_name} ${profile.surname}`;
+        token.name = `${profile.given_name} ${profile.family_name}`;
+        token.firstName = profile.family_name;
+        token.lastName = profile.surname;
         token.dob = profile.birthdate;
         token.nhsNumber = profile.nhs_number;
         token.identityLevel = profile.identity_proofing_level;
@@ -74,11 +76,30 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       return token;
     },
     async session({ session, token }) {
-      session.user.name = token.name;
-      session.user.dob = token.dob;
-      session.user.nhsNumber = token.nhsNumber;
-      session.user.identityLevel = token.identityLevel;
+      if (session.user) {
+        const { name, firstName, lastName, dob, nhsNumber, identityLevel } =
+          token;
+
+        Object.assign(session.user, {
+          name,
+          firstName,
+          lastName,
+          dob,
+          nhsNumber,
+          identityLevel,
+        });
+      }
       return session;
     },
   },
 });
+
+declare module "next-auth" {
+  interface User {
+    firstName?: string;
+    lastName?: string;
+    dob?: string;
+    nhsNumber?: number;
+    identityLevel?: string;
+  }
+}

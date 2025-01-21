@@ -1,5 +1,5 @@
-export const formatNhsNumber = (nhsNumber: string): string => {
-  return nhsNumber.replace(/(\d{3})(\d{3})(\d{4})/, "$1 $2 $3");
+export const formatNhsNumber = (nhsNumber: number): string => {
+  return nhsNumber.toString().replace(/(\d{3})(\d{3})(\d{4})/, "$1 $2 $3");
 };
 
 export const formatDate = (dateString: string): string => {

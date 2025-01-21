@@ -19,10 +19,14 @@ export default async function Home() {
       {session?.user && (
         <>
           <p>
-            Welcome {session.user.name} (NHS number:{" "}
-            {formatNhsNumber(session.user.nhsNumber)}), you are signed in.
+            Welcome {session.user.firstName} {session.user.lastName} (NHS
+            number:{" "}
+            {session.user.nhsNumber
+              ? formatNhsNumber(session.user.nhsNumber)
+              : ""}
+            ).
           </p>
-          <p>Date of birth: {formatDate(session.user.dob)}</p>
+          <p>Date of birth: {formatDate(session.user.dob ?? "")}</p>
           <p>Identity level: {session.user.identityLevel}</p>
           <p>Private content.</p>
           <SignOutButton />
