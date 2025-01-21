@@ -1,3 +1,7 @@
 # SEE: https://github.com/gitleaks/gitleaks/blob/master/README.md#gitleaksignore
 
 cd9c0efec38c5d63053dd865e5d4e207c0760d91:docs/guides/Perform_static_analysis.md:generic-api-key:37
+
+# This is formatting a PEM into a CyptoKey for auth and isn't actually a key
+
+f8d7c31c9f62d9a517fa2f1771ce1d3843a31c04:web/app/lib/auth.ts:generic-api-key:14
