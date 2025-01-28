@@ -1,8 +1,8 @@
-# Participant Manager UI
+# Manage Your Screening (MAYS) UI
 
-User interface template for Screening services.
+User interface template for Manage Your Screening (MAYS) service.
 
-Built with [Next.js](https://nextjs.org/).
+Built with [Next.js](https://nextjs.org/) using [NHS login](https://digital.nhs.uk/services/nhs-login).
 
 ## Running locally
 
@@ -37,11 +37,16 @@ Create a `.env` file which should override environment variables required to run
 # Default
 NEXT_PUBLIC_BASE_URL=https://localhost:3000
 NODE_ENV=development
-SERVICE_NAME="UI template"
+SERVICE_NAME="Manage Your Screening (MAYS)"
 
 # Auth
 NEXTAUTH_URL=https://localhost:3000/api/auth
 NEXTAUTH_SECRET={RANDOM_SECRET_STRING}
+
+# Only required for hosted environments
+AUTH_TRUST_HOST=true
+
+# NHS login
 AUTH_NHSLOGIN_ISSUER_URL=https://auth.sandpit.signin.nhs.uk
 AUTH_NHSLOGIN_CLIENT_ID={CLIENT_ID}
 ```

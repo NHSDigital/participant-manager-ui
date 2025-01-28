@@ -5,7 +5,7 @@ import SignOutButton from "./components/signOutButton";
 import { formatNhsNumber, formatDate } from "@/app/lib/utils";
 
 export const metadata: Metadata = {
-  title: `Overview - ${process.env.SERVICE_NAME}`,
+  title: `${process.env.SERVICE_NAME}`,
 };
 
 export default async function Home() {
