@@ -33,7 +33,7 @@ Open [https://localhost:3000](https://localhost:3000).
 
 Create a `.env` file which should override environment variables required to run locally:
 
-```
+```text
 # Default
 NEXT_PUBLIC_BASE_URL=https://localhost:3000
 NODE_ENV=development
@@ -59,7 +59,7 @@ Unit tests are written using [Jest](https://jestjs.io/) and [React Testing Libra
 
 To run unit tests, use the following command:
 
-```
+```bash
 pnpm run test:unit
 ```
 
@@ -69,7 +69,7 @@ This will execute all unit tests and provide a summary of the tests results.
 
 To run the unit tests in watch mode, use the following command:
 
-```
+```bash
 pnpm run test:unit:watch
 ```
 
@@ -79,7 +79,7 @@ This will run the tests and re-run them whenever a file changes.
 
 To generate a code coverage report, use the following command:
 
-```
+```bash
 npm run test:unit:coverage
 ```
 
@@ -95,7 +95,7 @@ Before running end-to-end tests make sure your development server is running loc
 
 To run the end-to-end tests, use the following command:
 
-```
+```bash
 pnpm run test:e2e:ui
 ```
 
@@ -105,7 +105,7 @@ This will open the Playwright test runner, where you can run the tests interacti
 
 To run the end-to-end tests in headless mode, use the following command:
 
-```
+```bash
 pnpm run test:e2e
 ```
 
