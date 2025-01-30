@@ -16,3 +16,5 @@ Syft
 Terraform
 toolchain
 Trufflehog
+npm
+pnpm

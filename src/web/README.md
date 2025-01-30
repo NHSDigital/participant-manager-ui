@@ -80,7 +80,7 @@ This will run the tests and re-run them whenever a file changes.
 To generate a code coverage report, use the following command:
 
 ```bash
-npm run test:unit:coverage
+pnpm run test:unit:coverage
 ```
 
 This will generate a coverage report in the `coverage` directory.
