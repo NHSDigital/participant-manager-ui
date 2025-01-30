@@ -19,7 +19,7 @@ public class EpisodeFunctions
   {
     _logger.LogInformation("C# HTTP trigger function processed a request.");
     return new OkObjectResult("Welcome to Azure Functions!");
-    
+
   }
 
 }
