@@ -13,6 +13,7 @@ export default async function Home() {
 
   return (
     <main className="nhsuk-main-wrapper" id="maincontent" role="main">
+<<<<<<< HEAD
       {!session?.user && (
         <>
           <h1>{process.env.SERVICE_NAME}</h1>
@@ -50,6 +51,24 @@ export default async function Home() {
           </p>
           <p>Date of birth: {formatDate(session.user.dob ?? "")}</p>
           <p>Identity level: {session.user.identityLevel}</p>
+=======
+      <h1>Overview</h1>
+      <p>Public content.</p>
+      {!session?.user && <SignInButton />}
+      {session?.user && (
+        <>
+          <p>
+            Welcome {session.user.firstName} {session.user.lastName} (NHS
+            number:{" "}
+            {session.user.nhsNumber
+              ? formatNhsNumber(session.user.nhsNumber)
+              : ""}
+            ).
+          </p>
+          <p>Date of birth: {formatDate(session.user.dob ?? "")}</p>
+          <p>Identity level: {session.user.identityLevel}</p>
+          <p>Private content.</p>
+>>>>>>> 681f204 (Initial commit)
           <SignOutButton />
         </>
       )}
