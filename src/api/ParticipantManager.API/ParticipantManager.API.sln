@@ -4,8 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParticipantManager.API", "P
 EndProject
 Global
   GlobalSection(SolutionConfigurationPlatforms) = preSolution
-	  Debug|Any CPU = Debug|Any CPU
-		  Release|Any CPU = Release|Any CPU
+    Debug|Any CPU = Debug|Any CPU
+      Release|Any CPU = Release|Any CPU
     EndGlobalSection
   GlobalSection(ProjectConfigurationPlatforms) = postSolution
     {62C649FD-6021-48C3-B54B-417B547F26DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
